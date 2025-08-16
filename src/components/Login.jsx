@@ -21,7 +21,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post('https://finance-back-2.onrender.com/api/auth/login', form);
+      const res = await axios.post('http://localhost:5000/api/auth/login', form);
       saveToken(res.data.token);
       setSuccess(true);
 
