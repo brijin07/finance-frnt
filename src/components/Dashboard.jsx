@@ -64,7 +64,7 @@ const Dashboard = () => {
   const fetchTransactions = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('http://localhost:5000/api/transactions', {
+      const res = await axios.get('https://finance-back-2.onrender.com/api/transactions', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTransactions(res.data);
@@ -82,7 +82,7 @@ const Dashboard = () => {
   // Add transaction
   const addTransaction = async (formData) => {
     try {
-      await axios.post('http://localhost:5000/api/transactions', formData, {
+      await axios.post('https://finance-back-2.onrender.com/api/transactions', formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchTransactions();
@@ -96,7 +96,7 @@ const Dashboard = () => {
   const deleteTransaction = async (id) => {
     if (!window.confirm('Are you sure to delete this transaction?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/transactions/${id}`, {
+      await axios.delete(`https://finance-back-2.onrender.com/api/transactions/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchTransactions();
